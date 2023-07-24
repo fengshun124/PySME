@@ -1123,7 +1123,7 @@ static PyObject *smelib_CentralDepth(PyObject *self, PyObject *args, PyObject *k
     if (mu_arr == NULL)
         goto fail;
 
-    if (PyArray_NDIM(mu_arr) != 0)
+    if (PyArray_NDIM(mu_arr) != 1)
     {
         PyErr_SetString(PyExc_ValueError, "Expected mu array with ndim == 1");
         goto fail;
