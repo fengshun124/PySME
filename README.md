@@ -2,7 +2,7 @@
 [![Documentation Status](https://readthedocs.org/projects/pysme-astro/badge/?version=latest)](https://pysme-astro.readthedocs.io/en/latest/?badge=latest)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5547527.svg)](https://doi.org/10.5281/zenodo.5547527)
 
-# PySME is not currently under development and is provided as is, if you want to take over the project, please contact me.
+**PySME is in transition from the old repo to the current one, so it is expected that the renew would take some time.**
 
 # PySME
 
