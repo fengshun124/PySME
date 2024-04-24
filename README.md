@@ -2,7 +2,7 @@
 [![Documentation Status](https://readthedocs.org/projects/pysme-astro/badge/?version=latest)](https://pysme-astro.readthedocs.io/en/latest/?badge=latest)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5547527.svg)](https://doi.org/10.5281/zenodo.5547527)
 
-**PySME is in transition from the old repo to the current one, so it is expected that the renew would take some time.**
+**PySME is in transition from the [old repo](https://github.com/AWehrhahn/SME) to the current one, so it is expected that the renew would take some time.**
 
 # PySME
 
@@ -23,7 +23,7 @@ A stable version is available on pip `pip install pysme-astro`
 If you are interested in the latest version you can do so by cloning this git.
 ```bash
 # Clone the git repository
-git clone https://github.com/AWehrhahn/SME.git
+git clone https://github.com/MingjieJian/SME.git
 # Move to the new directory
 cd SME
 # Install this folder (as an editable module)
