@@ -87,7 +87,7 @@ class LineList(IPersist):
             elif flag[0] == "E":
                 # absolute error in dex
                 # TODO absolute?
-                error[i] = 10 ** float(flag[1:])
+                error[i] = 10 ** float(flag[1:-1])
             elif flag[0] == "C":
                 # Cancellation Factor, i.e. relative error
                 try:
