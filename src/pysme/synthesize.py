@@ -575,7 +575,7 @@ class Synthesizer:
         #   Apply instrumental and turbulence broadening
 
         for il in tqdm(
-            segments, desc="Segments", leave=False, disable=~show_progress_bars
+            segments, desc="Segments", leave=False, disable=not show_progress_bars
         ):
             wmod[il], smod[il], cmod[il] = self.synthesize_segment(
                 sme,
