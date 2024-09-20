@@ -88,7 +88,6 @@ def download_libsme(loc=None):
             ["install_name_tool", "-id", fname, fname], capture_output=True, check=True
         )
 
-
 def compile_interface():
     """
     Compiles the Python Module Interface to the SME library. This needs to be

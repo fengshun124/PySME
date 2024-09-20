@@ -470,6 +470,7 @@ class Synthesizer:
         sme,
         segments="all",
         passLineList=True,
+        linelist_mode='all',
         passAtmosphere=True,
         passNLTE=True,
         updateStructure=True,
@@ -544,6 +545,8 @@ class Synthesizer:
         smod = [[] for _ in range(n_segments)]
         cmod = [[] for _ in range(n_segments)]
         wmod = [[] for _ in range(n_segments)]
+        central_depth = [[] for _ in range(n_segments)]
+        line_range = [[] for _ in range(n_segments)]
 
         # If wavelengths are already defined use those as output
         if "wave" in sme:
@@ -574,15 +577,13 @@ class Synthesizer:
         #   Interpolate onto geomspaced wavelength grid
         #   Apply instrumental and turbulence broadening
 
-        for il in tqdm(
-            segments, desc="Segments", leave=False, disable=not show_progress_bars
-        ):
-            wmod[il], smod[il], cmod[il] = self.synthesize_segment(
+        for il in tqdm(segments, desc="Segments", leave=False, disable=~show_progress_bars):
+            wmod[il], smod[il], cmod[il], central_depth[il], line_range[il] = self.synthesize_segment(
                 sme,
                 il,
                 reuse_wavelength_grid,
                 il != segments[0],
-                dll_id=dll_id,
+                dll_id=dll_id
             )
 
         for il in segments:
@@ -594,7 +595,7 @@ class Synthesizer:
                 wave[il] = np.concatenate(([wbeg], wmod[il][itrim], [wend]))
 
         if sme.specific_intensities_only:
-            return wmod, smod, cmod
+            return wmod, smod, cmod, central_depth
 
         # Fit continuum and radial velocity
         # And interpolate the flux onto the wavelength grid
@@ -631,11 +632,17 @@ class Synthesizer:
                 sme.synth = smod
             if "cont" not in sme:
                 sme.cont = cmod
+            if "central_depth" not in sme:
+                sme.central_depth = central_depth
+            if "line_range" not in sme:
+                sme.line_range = line_range
 
             for s in segments:
                 sme.wave[s] = wave[s]
                 sme.synth[s] = smod[s]
                 sme.cont[s] = cmod[s]
+                sme.central_depth[s] = central_depth[s]
+                sme.line_range[s] = line_range[s]
 
             if sme.cscale_type in ["spline", "spline+mask"]:
                 sme.cscale = np.asarray(cscale)
@@ -667,6 +674,8 @@ class Synthesizer:
         reuse_wavelength_grid=False,
         keep_line_opacity=False,
         dll_id=None,
+        passLineList=True,
+        linelist_mode='all'
     ):
         """Create the synthetic spectrum of a single segment
 
@@ -676,6 +685,8 @@ class Synthesizer:
             The SME strcuture containing all relevant parameters
         segment : int
             the segment to synthesize
+        setLineList : bool, optional
+            wether to pass the linelist to the c library (default: True)
         reuse_wavelength_grid : bool
             Whether to keep the current wavelength grid for the synthesis
             or create a new one, depending on the linelist. Default: False
@@ -698,6 +709,15 @@ class Synthesizer:
         # Input Wavelength range and Opacity
         vrad_seg = sme.vrad[segment] if sme.vrad[segment] is not None else 0
         wbeg, wend = self.get_wavelengthrange(sme.wran[segment], vrad_seg, sme.vsini)
+
+        # # Input the line list as required
+        # if passLineList:
+        #     print('Pass line list.')
+        #     if linelist_mode == 'chunk':
+        #         print('Linelist: chunk')
+        #         print()
+        #         indices = (sme.linelist['wlcent'] >= wbeg) & (sme.linelist['wlcent'] <= wend)
+        #         dll.InputLineList(sme.linelist[indices])
 
         dll.InputWaveRange(wbeg, wend)
         dll.Opacity()
@@ -756,9 +776,13 @@ class Synthesizer:
         if sme.normalize_by_continuum:
             sint /= cint
 
-        return wint, sint, cint
+        # Mingjie: run CentralDepth
+        central_depth = dll.CentralDepth(sme.mu, sme.accrt)
+        line_range = dll.GetLineRange()
+
+        return wint, sint, cint, central_depth, line_range
 
 
-def synthesize_spectrum(sme, segments="all"):
+def synthesize_spectrum(sme, segments="all", **args):
     synthesizer = Synthesizer()
-    return synthesizer.synthesize_spectrum(sme, segments)
+    return synthesizer.synthesize_spectrum(sme, segments, **args)
