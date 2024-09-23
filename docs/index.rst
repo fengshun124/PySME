@@ -7,7 +7,7 @@ Welcome to PySME's documentation!
 =================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Contents:
 
    usage/installation
@@ -22,6 +22,7 @@ Welcome to PySME's documentation!
    usage/system_info
    usage/lfs
    usage/changes
+   usage/changelog
    usage/faq
    _sources/modules
 
