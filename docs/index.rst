@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to PySME's documentation!
+PySME documentation
 =================================
 
 .. toctree::
@@ -22,7 +22,7 @@ Welcome to PySME's documentation!
    usage/system_info
    usage/lfs
    usage/changes
-   usage/changelog.md
+   usage/changelog
    usage/faq
    _sources/modules
 
