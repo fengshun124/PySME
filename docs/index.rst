@@ -22,7 +22,7 @@ Welcome to PySME's documentation!
    usage/system_info
    usage/lfs
    usage/changes
-   usage/changelog
+   usage/changelog.md
    usage/faq
    _sources/modules
 
