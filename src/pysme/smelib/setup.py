@@ -2,12 +2,12 @@
 from distutils.core import Extension, setup
 from os.path import abspath, dirname, join
 
-import numpy.distutils.misc_util
+import numpy
 from libtools import get_full_libfile
 
 libdir = get_full_libfile()
 libdir = abspath(dirname(libdir))
-include_dirs = numpy.distutils.misc_util.get_numpy_include_dirs()
+include_dirs = [numpy.get_include()]
 include_dirs += [libdir]
 
 module = Extension(
