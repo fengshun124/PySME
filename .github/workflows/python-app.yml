@@ -22,6 +22,8 @@ jobs:
           # - name: windows
           #   runs_on: windows-latest
     runs-on: ${{ matrix.runs_on }}
+    permissions:
+      id-token: write  # IMPORTANT: mandatory for trusted publishing
 
     steps:
       - uses: actions/checkout@v2
@@ -112,8 +114,6 @@ jobs:
           asset_content_type: application/zip
 
       - name: Publish a Python distribution to PyPI
-        permissions:
-          id-token: write  # IMPORTANT: mandatory for trusted publishing
         if: github.event_name != 'pull_request' && matrix.name == 'ubuntu'
         uses: pypa/gh-action-pypi-publish@master
         # with:
