@@ -67,12 +67,12 @@ jobs:
       - name: Test with pytest
         run: pytest
 
-      - name: GitHub Tag
-        if: github.event_name != 'pull_request' && matrix.name == 'ubuntu'
-        id: tag_release
-        uses: mathieudutour/github-tag-action@v5
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+      # - name: GitHub Tag
+      #   if: github.event_name != 'pull_request' && matrix.name == 'ubuntu'
+      #   id: tag_release
+      #   uses: mathieudutour/github-tag-action@v5
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: actions/checkout@v2
         if: github.event_name != 'pull_request' && matrix.name == 'ubuntu'
