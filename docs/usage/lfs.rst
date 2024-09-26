@@ -39,38 +39,101 @@ Atmosphere grids:
 
 NLTE grids:
 
-  - recommended:
+  - recommended and default grids:
 
-    - nlte_Fe_ama51_Feb2022_pysme.grd `(Amarsi et al. 2012) <https://ui.adsabs.harvard.edu/abs/2021A%26A...653A.141A/abstract>`_
-    - marcs2012_Li.grd `(Lind et al. 2009) <https://ui.adsabs.harvard.edu/abs/2009A%26A...503..541L>`_
-    - marcs2012_Li2009.grd `(Lind et al. 2009) <https://ui.adsabs.harvard.edu/abs/2009A%26A...503..541L>`_
-    - marcs2012_Mg2016.grd `(Osorio et al. 2016) <https://ui.adsabs.harvard.edu/abs/2016A%26A...586A.120O>`_
-    - marcs2012_Na.grd `(Lind et al. 2011) <https://ui.adsabs.harvard.edu/abs/2011A%26A...528A.103L>`_
-    - marcs2012_Na2011.grd `(Lind et al. 2011) <https://ui.adsabs.harvard.edu/abs/2011A%26A...528A.103L>`_
-    - marcs2012_O2015.grd `(Amarsi et al. 2016b) <https://ui.adsabs.harvard.edu/abs/2016MNRAS.455.3735A>`_
-    - marcs2012_Si2016.grd `(Amarsi & Asplund 2017) <https://ui.adsabs.harvard.edu/abs/2017MNRAS.464..264A>`_
-    - marcs2012p_t1.0_Ba.grd `(Mashonkina et al. 1999) <https://ui.adsabs.harvard.edu/abs/1999A%26A...343..519M>`_
-    - marcs2012p_t1.0_Ca.grd `(Mashonkina et al. 2017) <https://ui.adsabs.harvard.edu/abs/2007A%26A...461..261M>`_
-    - marcs2012p_t1.0_Na.grd `(Mashonkina et al. 2001) <https://ui.adsabs.harvard.edu/abs/2000ARep...44..790M>`_
-    - marcs2012p_t1.0_O.grd `(Sitnova et al. 2013) <https://ui.adsabs.harvard.edu/abs/2013AstL...39..126S>`_
-    - marcs2012s_t2.0_Ca.grd `(Mashonkina et al. 2007) <https://ui.adsabs.harvard.edu/abs/2007A%26A...461..261M>`_
-    - marcs2012s_t2.0_Fe.grd `(Mashonkina et al. 2011) <https://ui.adsabs.harvard.edu/abs/2011A%26A...528A..87M>`_
-    - marcs2012s_t2.0_Ti.grd `(Sitnova et al. 2016) <https://ui.adsabs.harvard.edu/abs/2016MNRAS.461.1000S>`_
+    - H
+      - nlte_H_scatt_pysme.grd `(Amarsi et al. 2020; version 3) <https://ui.adsabs.harvard.edu/abs/2020A%26A...642A..62A>`_
+    - Li
+      - nlte_Li_scatt_pysme.grd `(Amarsi et al. 2020; version 3) <https://ui.adsabs.harvard.edu/abs/2020A%26A...642A..62A>`_
+    - C
+      - nlte_C_ama51_pysme.grd `(Amarsi et al. 2020; version 2) <https://ui.adsabs.harvard.edu/abs/2020A%26A...642A..62A>`_
+    - N
+      - nlte_N_scatt_pysme.grd `(Amarsi et al. 2020; version 3) <https://ui.adsabs.harvard.edu/abs/2020A%26A...642A..62A>`_
+    - O
+      - nlte_O_scatt_pysme.grd `(Amarsi et al. 2020; version 3) <https://ui.adsabs.harvard.edu/abs/2020A%26A...642A..62A>`_
+    - Na
+      - nlte_Na_scatt_pysme.grd `(Amarsi et al. 2020; version 3) <https://ui.adsabs.harvard.edu/abs/2020A%26A...642A..62A>`_
+    - Mg
+      - nlte_Mg_scatt_pysme.grd `(Amarsi et al. 2020; version 3) <https://ui.adsabs.harvard.edu/abs/2020A%26A...642A..62A>`_
+    - Al
+      - nlte_Al_scatt_pysme.grd `(Amarsi et al. 2020; version 3) <https://ui.adsabs.harvard.edu/abs/2020A%26A...642A..62A>`_
+    - Si
+      - nlte_Si_scatt_pysme.grd `(Amarsi et al. 2020; version 3) <https://ui.adsabs.harvard.edu/abs/2020A%26A...642A..62A>`_
+    - K
+      - nlte_K_scatt_pysme.grd `(Amarsi et al. 2020; version 3) <https://ui.adsabs.harvard.edu/abs/2020A%26A...642A..62A>`_
+    - Ca
+      - nlte_Ca_scatt_pysme.grd `(Amarsi et al. 2020; version 3) <https://ui.adsabs.harvard.edu/abs/2020A%26A...642A..62A>`_
+    - Ti 
+      - nlte_Ti_ama51_Aug2024_pysme.grd `(Mallinson et al. 2024) <https://ui.adsabs.harvard.edu/abs/2024A%26A...687A...5M/>`_
+    - Mn
+      - nlte_Mn_scatt_pysme.grd `(Amarsi et al. 2020; version 3) <https://ui.adsabs.harvard.edu/abs/2020A%26A...642A..62A>`_
+    - Fe
+      - nlte_Fe_ama51_Feb2022_pysme.grd `(Amarsi et al. 2020; version 4) <https://ui.adsabs.harvard.edu/abs/2020A%26A...642A..62A>`_
+    - Ba
+      - nlte_Ba_scatt_pysme.grd `(Amarsi et al. 2020; version 3) <https://ui.adsabs.harvard.edu/abs/2020A%26A...642A..62A>`_
 
   - deprecated:
-
-    - marcs2012_Fe2016.grd `(Amarsi et al. 2016a) <https://ui.adsabs.harvard.edu/abs/2016MNRAS.463.1518A>`_
-    - nlte_Ba.grd
-    - nlte_Ba_test.grd
-    - nlte_C.grd
-    - nlte_C_test.grd
-    - nlte_Ca.grd
-    - nlte_Ca_test.grd
-    - nlte_Eu.grd
-    - nlte_Eu_test.grd
-    - nlte_Fe_multi_full.grd
-    - nlte_Li_multi.grd
-    - nlte_Na_multi_full.grd
-    - nlte_Na_multi_sun.grd
-    - nlte_Si.grd
-    - nlte_Si_test.grd
+    - H 
+      - nlte_H_ama51_pysme.grd `(Amarsi et al. 2020; version 2) <https://ui.adsabs.harvard.edu/abs/2020A%26A...642A..62A>`_
+      - marcs2012_H2018.grd
+    - Li
+      - nlte_Li_ama51_pysme.grd `(Amarsi et al. 2020; version 2) <https://ui.adsabs.harvard.edu/abs/2020A%26A...642A..62A>`_
+      - marcs2012_Li.grd `(Lind et al. 2009) <https://ui.adsabs.harvard.edu/abs/2009A%26A...503..541L>`_
+      - marcs2012_Li2009.grd `(Lind et al. 2009) <https://ui.adsabs.harvard.edu/abs/2009A%26A...503..541L>`_
+      - nlte_Li_multi.grd
+    - C
+      - nlte_C_ama51_pysme.grd `(Amarsi et al. 2020; version 2) <https://ui.adsabs.harvard.edu/abs/2020A%26A...642A..62A>`_
+      - nlte_C.grd
+    - N 
+      - nlte_N_ama51_pysme.grd `(Amarsi et al. 2020; version 2) <https://ui.adsabs.harvard.edu/abs/2020A%26A...642A..62A>`_
+      - marcs2012_N.grd
+    - O
+      - nlte_O_ama51_pysme.grd  `(Amarsi et al. 2020; version 2) <https://ui.adsabs.harvard.edu/abs/2020A%26A...642A..62A>`_
+      - marcs2012p_t1.0_O.grd `(Sitnova et al. 2013) <https://ui.adsabs.harvard.edu/abs/2013AstL...39..126S>`_
+      - marcs2012_O2015.grd `(Amarsi et al. 2016b) <https://ui.adsabs.harvard.edu/abs/2016MNRAS.455.3735A>`_
+      - marcs2012_O.grd
+    - Na
+      - nlte_Na_ama51_pysme.grd  `(Amarsi et al. 2020; version 2) <https://ui.adsabs.harvard.edu/abs/2020A%26A...642A..62A>`_
+      - marcs2012p_t1.0_Na.grd `(Mashonkina et al. 2001) <https://ui.adsabs.harvard.edu/abs/2000ARep...44..790M>`_
+      - marcs2012_Na.grd `(Lind et al. 2011) <https://ui.adsabs.harvard.edu/abs/2011A%26A...528A.103L>`_
+      - marcs2012_Na2011.grd `(Lind et al. 2011) <https://ui.adsabs.harvard.edu/abs/2011A%26A...528A.103L>`_
+      - nlte_Na_multi_full.grd
+      - nlte_Na_multi_sun.grd
+    - Al 
+      - nlte_Al_ama51_pysme.grd `(Amarsi et al. 2020; version 2) <https://ui.adsabs.harvard.edu/abs/2020A%26A...642A..62A>`_
+      - marcs2012_Al.grd
+      - marcs2012_Al2017.grd
+    - Mg
+      - nlte_Mg_ama51_pysme.grd  `(Amarsi et al. 2020; version 2) <https://ui.adsabs.harvard.edu/abs/2020A%26A...642A..62A>`_
+      - marcs2012_Mg2016.grd `(Osorio et al. 2016) <https://ui.adsabs.harvard.edu/abs/2016A%26A...586A.120O>`_
+      - marcs2012_Mg.grd
+    - Si
+      - nlte_Si_ama51_pysme.grd `(Amarsi et al. 2020; version 2) <https://ui.adsabs.harvard.edu/abs/2020A%26A...642A..62A>`_
+      - marcs2012_Si2016.grd `(Amarsi & Asplund 2017) <https://ui.adsabs.harvard.edu/abs/2017MNRAS.464..264A>`_
+      - marcs2012_Si.grd
+      - nlte_Si.grd
+      - nlte_Si_test.grd
+    - K
+      - nlte_K_ama51_pysme.grd `(Amarsi et al. 2020; version 2) <https://ui.adsabs.harvard.edu/abs/2020A%26A...642A..62A>`_
+      - marcs2012_K.grd
+    - Ca
+      - nlte_Ca_ama51_pysme.grd  `(Amarsi et al. 2020; version 2) <https://ui.adsabs.harvard.edu/abs/2020A%26A...642A..62A>`_
+      - marcs2012s_t2.0_Ca.grd `(Mashonkina et al. 2007) <https://ui.adsabs.harvard.edu/abs/2007A%26A...461..261M>`_
+      - marcs2012p_t1.0_Ca.grd `(Mashonkina et al. 2017) <https://ui.adsabs.harvard.edu/abs/2007A%26A...461..261M>`_
+    - Ti
+      - marcs2012s_t2.0_Ti.grd `(Sitnova et al. 2016) <https://ui.adsabs.harvard.edu/abs/2016MNRAS.461.1000S>`_
+    - Mn
+      - nlte_Mn_ama51_pysme.grd `(Amarsi et al. 2020; version 2) <https://ui.adsabs.harvard.edu/abs/2020A%26A...642A..62A>`_
+      - marcs2012_Mn.grd
+    - Fe
+      - marcs2012_Fe2016.grd `(Amarsi et al. 2016a) <https://ui.adsabs.harvard.edu/abs/2016MNRAS.463.1518A>`_
+      - nlte_Fe_ama51_Feb2022_pysme.grd `(Amarsi et al. 2012; version 2) <https://ui.adsabs.harvard.edu/abs/2021A%26A...653A.141A/abstract>`_
+      - marcs2012s_t2.0_Fe.grd `(Mashonkina et al. 2011) <https://ui.adsabs.harvard.edu/abs/2011A%26A...528A..87M>`_
+      - nlte_Fe_multi_full.grd
+      - marcs2012_Fe.grd
+    - Ba
+      - nlte_Ba_ama51_pysme.grd `(Amarsi et al. 2020; version 2) <https://ui.adsabs.harvard.edu/abs/2020A%26A...642A..62A>`_
+      - marcs2012p_t1.0_Ba.grd `(Mashonkina et al. 1999) <https://ui.adsabs.harvard.edu/abs/1999A%26A...343..519M>`_
+    - Eu
+      - nlte_Eu.grd
+      - nlte_Eu_test.grd
