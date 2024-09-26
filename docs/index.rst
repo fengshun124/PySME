@@ -20,9 +20,9 @@ PySME documentation
    usage/fitparameters
    usage/fitresults
    usage/system_info
-   usage/lfs
+   Large File Server <usage/lfs>
    usage/changes
-   usage/changelog
+   Changelog <usage/changelog>
    usage/faq
    _sources/modules
 
