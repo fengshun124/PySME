@@ -5,7 +5,7 @@ name: Python application
 
 on:
   push:
-    branches: [main]
+    branches: [main, develop]
   pull_request:
     branches: [main]
 
@@ -22,6 +22,8 @@ jobs:
           # - name: windows
           #   runs_on: windows-latest
     runs-on: ${{ matrix.runs_on }}
+    permissions:
+      id-token: write  # IMPORTANT: mandatory for trusted publishing
 
     steps:
       - uses: actions/checkout@v2
@@ -37,6 +39,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install flake8 pytest
           pip install -r requirements.txt
+          python setup.py version
           pip install .
 
       - name: Lint with flake8
@@ -113,6 +116,6 @@ jobs:
       - name: Publish a Python distribution to PyPI
         if: github.event_name != 'pull_request' && matrix.name == 'ubuntu'
         uses: pypa/gh-action-pypi-publish@master
-        with:
-          user: __token__
-          password: ${{ secrets.pypi_password }}
+        # with:
+        #   user: __token__
+        #   password: ${{ secrets.pypi_password }}
