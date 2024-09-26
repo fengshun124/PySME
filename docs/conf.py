@@ -49,6 +49,7 @@ extensions = [
     "sphinx.ext.viewcode",
     "sphinx.ext.githubpages",
     "sphinx.ext.napoleon",
+    'myst_parser'
 ]
 
 autodoc_member_order = "groupwise"
