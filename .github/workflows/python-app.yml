@@ -23,15 +23,16 @@ jobs:
           #   runs_on: windows-latest
     runs-on: ${{ matrix.runs_on }}
     permissions:
+      contents: write
       id-token: write  # IMPORTANT: mandatory for trusted publishing
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
       - name: Set up Python 3.8
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v3
         with:
           python-version: 3.8
       - name: Install dependencies
@@ -74,7 +75,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         if: github.event_name != 'pull_request' && matrix.name == 'ubuntu'
         with:
           ref: ${{ steps.tag_release.outputs.new_tag }}
