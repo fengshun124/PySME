@@ -23,13 +23,13 @@ sys.path.insert(0, src_dir + "/src")
 # -- Project information -----------------------------------------------------
 
 project = "SME"
-copyright = "2018, Jeff Valenti, Nikolai Piskunov, Ansgar Wehrhahn"
-author = "Jeff Valenti, Nikolai Piskunov, Ansgar Wehrhahn"
+copyright = "2018, Jeff Valenti, Nikolai Piskunov, Ansgar Wehrhahn, Mingjie Jian"
+author = "Jeff Valenti, Nikolai Piskunov, Ansgar Wehrhahn, Mingjie Jian"
 
 # The short X.Y version
 version = ""
 # The full version, including alpha/beta/rc tags
-release = "0.1"
+release = "0.1.1"
 
 
 # -- General configuration ---------------------------------------------------
@@ -42,14 +42,14 @@ release = "0.1"
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    'myst_parser',
     "sphinx.ext.autodoc",
     "sphinx.ext.todo",
     "sphinx.ext.coverage",
     "sphinx.ext.mathjax",
     "sphinx.ext.viewcode",
     "sphinx.ext.githubpages",
-    "sphinx.ext.napoleon",
-    'myst_parser'
+    "sphinx.ext.napoleon"
 ]
 
 autodoc_member_order = "groupwise"
@@ -147,7 +147,7 @@ latex_documents = [
         master_doc,
         "SME.tex",
         "SME Documentation",
-        "Jeff Valenti, Nikolai Piskunov, Ansgar Wehrhahn",
+        "Jeff Valenti, Nikolai Piskunov, Ansgar Wehrhahn, Mingjie Jian",
         "manual",
     )
 ]

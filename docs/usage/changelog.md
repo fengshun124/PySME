@@ -1,15 +1,13 @@
-.. _changelog:
+# Changelog
 
-Changelog
-=============
+This page storages the change log for pysme since May 2024.
 
-In-development
------------------
+## In-development
 
 - New readthedocs theme (alabaster -> sphinx_book_theme).
+- New NLTE grids
 
-In github-repo
---------------------
+## In github-repo
 
 - Add line depth result to sme_structure.
 - Add line range result to sme_structure.
