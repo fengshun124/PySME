@@ -96,7 +96,7 @@ class LargeFileStorage:
         # If its a direct file link, pass that directly to
         if url.startswith("file://"):
             return url[7:]
-
+        
         fname = download_file(url, cache=True, pkgname=PKGNAME)
 
         compression = self._test_compression(fname)
