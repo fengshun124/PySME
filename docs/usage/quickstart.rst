@@ -89,3 +89,4 @@ The results will be contained in the output sme structure. These can for example
 
 or saved with
     >>> sme.save("out.npy")
+
