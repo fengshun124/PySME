@@ -79,3 +79,4 @@ They can be initialized by passing their name during the
 creation of the abundance. E.g. Abund("grevesse2007").
 The default solar abundance is 'asplund2009' and is also
 available using Abund.solar().
+
