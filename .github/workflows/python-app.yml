@@ -114,6 +114,8 @@ jobs:
       - name: Publish a Python distribution to PyPI
         if: github.event_name != 'pull_request' && matrix.name == 'ubuntu'
         uses: pypa/gh-action-pypi-publish@master
-        with:
-          user: __token__
-          password: ${{ secrets.pypi_password }}
+        permissions:
+          id-token: write  # IMPORTANT: mandatory for trusted publishing
+        # with:
+        #   user: __token__
+        #   password: ${{ secrets.pypi_password }}
