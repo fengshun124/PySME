@@ -764,7 +764,7 @@ class SME_Solver:
                     self.parameter_names, res.x, sme.fitresults.fit_uncertainties
                 ):
                     logger.info("%s\t%.5f +- %.5g", name.ljust(10), value, unc)
-                logger.info("%s\t%s +- %s", "v_rad".ljust(10), sme.vrad, sme.vrad_unc)
+                logger.info("%s\t%s +- %s", "vrad".ljust(10), sme.vrad, sme.vrad_unc)
             except:
                 pass
         elif len(param_names) > 0:

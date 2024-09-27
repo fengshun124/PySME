@@ -978,10 +978,10 @@ def determine_radial_velocity(
 
         # Filter the mask for the correct sections
         # Need to use temporary m instead of mask, so that we can check
-        m = (mask & MASK_VALUES.VRAD) != 0
+        m = mask == MASK_VALUES.VRAD
         if not np.any(m):
             # No VRAD specified, use LINE instead
-            m = (mask & MASK_VALUES.LINE) != 0
+            m = mask == MASK_VALUES.LINE
         mask = m
         mask &= u_obs != 0
 
