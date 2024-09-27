@@ -2,8 +2,6 @@
 [![Documentation Status](https://readthedocs.org/projects/pysme-astro/badge/?version=latest)](https://pysme-astro.readthedocs.io/en/latest/?badge=latest)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5547527.svg)](https://doi.org/10.5281/zenodo.5547527)
 
-**PySME is in transition from the [old repo](https://github.com/AWehrhahn/SME) to the current one, so it is expected that the renew would take some time.**
-
 # PySME
 
 Spectroscopy Made Easy (SME) is a software tool that fits an observed
@@ -37,7 +35,7 @@ A poster about PySME can be found here: [Poster](http://sme.astro.uu.se/poster.h
 
 # GUI
 
-A GUI for PySME is available in its own repository [PySME-GUI](https://github.com/AWehrhahn/PySME-GUI).
+A GUI for PySME is available in its own repository [PySME-GUI](https://github.com/MingjieJian/PySME-GUI).
 
 # Windows
 
