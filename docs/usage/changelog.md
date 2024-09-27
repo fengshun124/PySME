@@ -9,6 +9,10 @@ This page storages the change log for pysme since May 2024.
 
 ## In github-repo
 
+- fix mask bug. 
+
+## v0.4.179
+
 - Add line depth result to sme_structure.
 - Add line range result to sme_structure.
 - Support python 3.12.
