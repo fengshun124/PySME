@@ -1013,6 +1013,10 @@ class NLTE(Collection):
     def update_coefficients(self, sme, dll, lfs_nlte):
         """pass departure coefficients to C library"""
 
+        # Reset the departure coefficient every time, just to be sure
+        # It would be more efficient to just Update the values, but this doesn't take long
+        dll.ResetDepartureCoefficients()
+
         # Only print "Running in NLTE" message on the first run each time
         if np.all(self.grids == "") or np.size(self.elements) == 0:
             # No NLTE to do
@@ -1029,10 +1033,6 @@ class NLTE(Collection):
                     "Line formation will proceed under LTE."
                 )
             return sme
-
-        # Reset the departure coefficient every time, just to be sure
-        # It would be more efficient to just Update the values, but this doesn't take long
-        dll.ResetDepartureCoefficients()
 
         if self.first:
             self.first = False
