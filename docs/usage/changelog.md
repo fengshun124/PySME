@@ -9,7 +9,9 @@ This page storages the change log for pysme since May 2024.
 
 ## In github-repo
 
-- fix mask bug. 
+## v0.4.180
+
+- fix mask bug. The continuum fitting function is now available.
 
 ## v0.4.179
 
