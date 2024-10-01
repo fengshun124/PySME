@@ -132,9 +132,10 @@ class Synthesizer:
         diff = wint[1:] - wint[:-1]
         jmin = np.argmin(diff)
         vstep1 = diff[jmin] / wint[jmin] * clight  # smallest step
-        vstep2 = 0.1 * wspan / (len(wint) - 1) / wmid * clight  # 10% mean dispersion
+        # vstep2 = 0.1 * wspan / (len(wint) - 1) / wmid * clight  # 10% mean dispersion
+        # vstep2 = np.median(diff / wint[:-1] * clight) # Median step
         vstep3 = 0.05  # 0.05 km/s step
-        vstep = max(vstep1, vstep2, vstep3)  # select the largest
+        vstep = np.max([vstep1, vstep3])  # select the largest
 
         # Generate model wavelength scale X, with uniform wavelength step.
         nx = int(
@@ -597,6 +598,11 @@ class Synthesizer:
         if sme.specific_intensities_only:
             return wmod, smod, cmod, central_depth
 
+        # For testing wavegrid
+        sme.wmod = wmod.copy()
+        sme.smod = smod.copy()
+        sme.comd = cmod.copy()
+
         # Fit continuum and radial velocity
         # And interpolate the flux onto the wavelength grid
         if radial_velocity_mode == "robust":
@@ -657,6 +663,7 @@ class Synthesizer:
             sme.vrad = np.asarray(vrad)
             sme.vrad_unc = np.asarray(vrad_unc)
             sme.nlte.flags = dll.GetNLTEflags()
+
             result = sme
         else:
             wave = Iliffe_vector(values=wave)
@@ -768,9 +775,7 @@ class Synthesizer:
             if "iptype" in sme:
                 logger.debug("Apply detector broadening")
                 ipres = sme.ipres if np.size(sme.ipres) == 1 else sme.ipres[segment]
-                sint = broadening.apply_broadening(
-                    ipres, wint, sint, type=sme.iptype, sme=sme
-                )
+                sint = broadening.apply_broadening(ipres, wint, sint, type=sme.iptype, sme=sme)
 
         # Divide calculated spectrum by continuum
         if sme.normalize_by_continuum:
