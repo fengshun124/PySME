@@ -3,7 +3,7 @@ import logging
 
 import numpy as np
 from scipy.interpolate import interp1d
-from scipy.ndimage.filters import convolve
+from scipy.ndimage import convolve
 
 logger = logging.getLogger(__name__)
 
