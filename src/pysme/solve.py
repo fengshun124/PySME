@@ -28,6 +28,9 @@ from .sme import MASK_VALUES
 from .synthesize import Synthesizer
 from .util import print_to_log, show_progress_bars
 
+# Debug usage
+from memory_profiler import profile
+
 logger = logging.getLogger(__name__)
 
 clight = speed_of_light * 1e-3  # km/s
@@ -715,7 +718,7 @@ class SME_Solver:
         # Setup LineList only once
         dll = self.synthesizer.get_dll()
         dll.SetLibraryPath()
-        dll.InputLineList(sme.linelist)
+        _ = dll.InputLineList(sme.linelist)
 
         # Do the heavy lifting
         if self.nparam > 0:

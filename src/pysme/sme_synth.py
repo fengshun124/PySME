@@ -278,6 +278,8 @@ class SME_DLL:
 
         _smelib.InputLineList(species, atomic)
 
+        return mask
+
     def OutputLineList(self):
         """
         Return line list
