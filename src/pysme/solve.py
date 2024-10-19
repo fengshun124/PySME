@@ -599,7 +599,7 @@ class SME_Solver:
                 )
         return param_names
 
-    def solve(self, sme, param_names=None, segments="all", bounds=None):
+    def solve(self, sme, param_names=None, segments="all", bounds=None, step_sizes=None):
         """
         Find the least squares fit parameters to an observed spectrum
 
@@ -673,7 +673,8 @@ class SME_Solver:
         if bounds is None:
             bounds = self.get_bounds(sme)
         # scales = self.get_scale()
-        step_sizes = self.get_step_sizes(self.parameter_names)
+        if step_sizes is None:
+            step_sizes = self.get_step_sizes(self.parameter_names)
         # Starting values
         p0 = self.get_default_values(sme)
         if np.any((p0 < bounds[0]) | (p0 > bounds[1])):
