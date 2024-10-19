@@ -9,6 +9,10 @@ This page storages the change log for pysme since May 2024.
 
 ## In github-repo
 
+- (synthesize) fix the vstep issue when synthesizing sparce spectrum.
+- (nlte) add ResetDepartureCoefficients function to ensure correct NLTE calculation
+- (solve) use 'vrad' instead of 'v_rad' for the radial velocity fitting.
+
 ## v0.4.180
 
 - fix mask bug. The continuum fitting function is now available.
