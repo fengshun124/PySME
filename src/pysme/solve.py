@@ -178,7 +178,15 @@ class SME_Solver:
 
         # change parameters
         for name, value in zip(self.parameter_names, param):
+            if self.dynamic_param is not None:
+                if name in self.dynamic_param.keys():
+                    raise ValueError(f'fitting parameter {name} cannot be also in dynamic parameter.')
             sme[name] = value
+        # change dynamic parameters
+        if self.dynamic_param is not None:
+            for name in self.dynamic_param.keys():
+                sme[name] = self.dynamic_param[name](sme)
+                print(f'Changing dynamic parameter {name} to {sme[name]:.2f}.')
         # run spectral synthesis
         try:
             result = self.synthesizer.synthesize_spectrum(
@@ -599,7 +607,7 @@ class SME_Solver:
                 )
         return param_names
 
-    def solve(self, sme, param_names=None, segments="all", bounds=None, step_sizes=None):
+    def solve(self, sme, param_names=None, segments="all", bounds=None, step_sizes=None, dynamic_param=None):
         """
         Find the least squares fit parameters to an observed spectrum
 
@@ -622,6 +630,8 @@ class SME_Solver:
 
         assert "wave" in sme, "SME Structure has no wavelength"
         assert "spec" in sme, "SME Structure has no observation"
+
+        self.dynamic_param = dynamic_param
 
         if self.restore and self.filename is not None:
             fname = self.filename.rsplit(".", 1)[0]
