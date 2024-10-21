@@ -8,7 +8,7 @@ import uuid
 import numpy as np
 from scipy.constants import speed_of_light
 from scipy.interpolate import interp1d
-from scipy.ndimage.filters import convolve
+from scipy.ndimage import convolve
 from tqdm import tqdm
 
 from . import broadening

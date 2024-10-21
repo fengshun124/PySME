@@ -28,8 +28,8 @@ from .sme import MASK_VALUES
 from .synthesize import Synthesizer
 from .util import print_to_log, show_progress_bars
 
-# Debug usage
-from memory_profiler import profile
+# # Debug usage
+# from memory_profiler import profile
 
 logger = logging.getLogger(__name__)
 
