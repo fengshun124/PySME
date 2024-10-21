@@ -24,6 +24,10 @@ from .sme import MASK_VALUES
 from .sme_synth import SME_DLL
 from .util import show_progress_bars
 
+# Temp solution
+import pandas as pd
+pd.options.mode.chained_assignment = None  # None means no warning will be shown
+
 logger = logging.getLogger(__name__)
 
 clight = speed_of_light * 1e-3  # km/s
@@ -644,8 +648,11 @@ class Synthesizer:
             
             if passLineList:
                 sme.central_depth = central_depth
-                sme.linelist._lines.loc[~line_ion_mask, 'central_depth'] = central_depth[0]
-                sme.linelist._lines.loc[line_ion_mask, 'central_depth'] = np.nan
+                for s in segments:
+                    # To do: modify to let linelist also can accept segments.
+                    if len(central_depth[s] > 0):
+                        sme.linelist._lines.loc[~line_ion_mask, 'central_depth'] = central_depth[s]
+                        sme.linelist._lines.loc[line_ion_mask, 'central_depth'] = np.nan
 
             for s in segments:
                 sme.wave[s] = wave[s]
