@@ -3,11 +3,11 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to PySME's documentation!
+PySME documentation
 =================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Contents:
 
    usage/installation
@@ -20,8 +20,9 @@ Welcome to PySME's documentation!
    usage/fitparameters
    usage/fitresults
    usage/system_info
-   usage/lfs
+   Large File Server <usage/lfs>
    usage/changes
+   Changelog <usage/changelog>
    usage/faq
    _sources/modules
 

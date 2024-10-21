@@ -8,7 +8,7 @@ import uuid
 import numpy as np
 from scipy.constants import speed_of_light
 from scipy.interpolate import interp1d
-from scipy.ndimage.filters import convolve
+from scipy.ndimage import convolve
 from tqdm import tqdm
 
 from . import broadening
@@ -23,6 +23,10 @@ from .large_file_storage import setup_lfs
 from .sme import MASK_VALUES
 from .sme_synth import SME_DLL
 from .util import show_progress_bars
+
+# Temp solution
+import pandas as pd
+pd.options.mode.chained_assignment = None  # None means no warning will be shown
 
 logger = logging.getLogger(__name__)
 
@@ -558,7 +562,8 @@ class Synthesizer:
         # Input Model data to C library
         dll.SetLibraryPath()
         if passLineList:
-            dll.InputLineList(sme.linelist)
+            line_ion_mask = dll.InputLineList(sme.linelist)
+            sme.line_ion_mask = line_ion_mask
         if hasattr(updateLineList, "__len__") and len(updateLineList) > 0:
             # TODO Currently Updates the whole linelist, could be improved to only change affected lines
             dll.UpdateLineList(sme.atomic, sme.species, updateLineList)
@@ -638,16 +643,22 @@ class Synthesizer:
                 sme.synth = smod
             if "cont" not in sme:
                 sme.cont = cmod
-            if "central_depth" not in sme:
-                sme.central_depth = central_depth
             if "line_range" not in sme:
                 sme.line_range = line_range
+            
+            if passLineList:
+                sme.central_depth = central_depth
+                for s in segments:
+                    # To do: modify to let linelist also can accept segments.
+                    if len(central_depth[s] > 0):
+                        sme.linelist._lines.loc[~line_ion_mask, 'central_depth'] = central_depth[s]
+                        sme.linelist._lines.loc[line_ion_mask, 'central_depth'] = np.nan
 
             for s in segments:
                 sme.wave[s] = wave[s]
                 sme.synth[s] = smod[s]
                 sme.cont[s] = cmod[s]
-                sme.central_depth[s] = central_depth[s]
+                # sme.central_depth[s] = central_depth[s]
                 sme.line_range[s] = line_range[s]
 
             if sme.cscale_type in ["spline", "spline+mask"]:

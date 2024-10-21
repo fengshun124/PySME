@@ -901,21 +901,21 @@ class NLTE(Collection):
 
     # For marcs2012 atmosphere
     _default_grids = {
-        "Al": "nlte_Al_ama51_pysme.grd",
-        "Fe": "marcs2012_Fe2016.grd",
-        "Li": "nlte_Li_ama51_pysme.grd",
-        "Mg": "nlte_Mg_ama51_pysme.grd",
-        "Na": "nlte_Na_ama51_pysme.grd",
-        "O": "nlte_O_ama51_pysme.grd",
-        "Ba": "nlte_Ba_ama51_pysme.grd",
-        "Ca": "nlte_Ca_ama51_pysme.grd",
-        "Si": "nlte_Si_ama51_pysme.grd",
-        "Ti": "marcs2012s_t2.0_Ti.grd",
-        "C": "nlte_C_ama51_pysme.grd",
-        "H": "nlte_H_ama51_pysme.grd",
-        "K": "nlte_K_ama51_pysme.grd",
-        "Mn": "nlte_Mn_ama51_pysme.grd",
-        "N": "nlte_N_ama51_pysme.grd",
+        "H": "nlte_H_pysme.grd",
+        "Li": "nlte_Li_pysme.grd",
+        "C": "nlte_C_pysme.grd",
+        "N": "nlte_N_pysme.grd",
+        "O": "nlte_O_pysme.grd",
+        "Na": "nlte_Na_pysme.grd",
+        "Mg": "nlte_Mg_pysme.grd",
+        "Al": "nlte_Al_pysme.grd",
+        "Si": "nlte_Si_pysme.grd",
+        "K": "nlte_K_pysme.grd",
+        "Ca": "nlte_Ca_pysme.grd",
+        "Ti": "nlte_Ti_pysme.grd",
+        "Mn": "nlte_Mn_pysme.grd",
+        "Fe": "nlte_Fe_pysme.grd",
+        "Ba": "nlte_Ba_pysme.grd",        
     }
 
     def __init__(self, **kwargs):

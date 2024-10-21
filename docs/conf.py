@@ -23,13 +23,13 @@ sys.path.insert(0, src_dir + "/src")
 # -- Project information -----------------------------------------------------
 
 project = "SME"
-copyright = "2018, Jeff Valenti, Nikolai Piskunov, Ansgar Wehrhahn"
-author = "Jeff Valenti, Nikolai Piskunov, Ansgar Wehrhahn"
+copyright = "2018, Jeff Valenti, Nikolai Piskunov, Ansgar Wehrhahn, Mingjie Jian"
+author = "Jeff Valenti, Nikolai Piskunov, Ansgar Wehrhahn, Mingjie Jian"
 
 # The short X.Y version
 version = ""
 # The full version, including alpha/beta/rc tags
-release = "0.1"
+release = "0.1.1"
 
 
 # -- General configuration ---------------------------------------------------
@@ -42,13 +42,14 @@ release = "0.1"
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    'myst_parser',
     "sphinx.ext.autodoc",
     "sphinx.ext.todo",
     "sphinx.ext.coverage",
     "sphinx.ext.mathjax",
     "sphinx.ext.viewcode",
     "sphinx.ext.githubpages",
-    "sphinx.ext.napoleon",
+    "sphinx.ext.napoleon"
 ]
 
 autodoc_member_order = "groupwise"
@@ -60,7 +61,12 @@ templates_path = ["_templates"]
 # You can specify multiple suffix as a list of string:
 #
 # source_suffix = ['.rst', '.md']
-source_suffix = ".rst"
+# source_suffix = ".rst"
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.txt': 'markdown',
+    '.md': 'markdown',
+}       
 
 # The master toctree document.
 master_doc = "index"
@@ -86,7 +92,7 @@ pygments_style = "sphinx"
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = "alabaster"
+html_theme = "sphinx_book_theme"
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -141,7 +147,7 @@ latex_documents = [
         master_doc,
         "SME.tex",
         "SME Documentation",
-        "Jeff Valenti, Nikolai Piskunov, Ansgar Wehrhahn",
+        "Jeff Valenti, Nikolai Piskunov, Ansgar Wehrhahn, Mingjie Jian",
         "manual",
     )
 ]

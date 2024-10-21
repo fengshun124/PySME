@@ -13,6 +13,27 @@ from .persistence import IPersist
 
 logger = logging.getLogger(__name__)
 
+_citation_asplund2021 = r"""
+@ARTICLE{2021A&A...653A.141A,
+       author = {{Asplund}, M. and {Amarsi}, A.~M. and {Grevesse}, N.},
+        title = "{The chemical make-up of the Sun: A 2020 vision}",
+      journal = {\aap},
+     keywords = {Sun: abundances, Sun: photosphere, Sun: atmosphere, line: formation, meteorites, meteors, meteoroids, Sun: helioseismology, Astrophysics - Solar and Stellar Astrophysics, Astrophysics - Earth and Planetary Astrophysics},
+         year = 2021,
+        month = sep,
+       volume = {653},
+          eid = {A141},
+        pages = {A141},
+          doi = {10.1051/0004-6361/202140445},
+archivePrefix = {arXiv},
+       eprint = {2105.01661},
+ primaryClass = {astro-ph.SR},
+       adsurl = {https://ui.adsabs.harvard.edu/abs/2021A&A...653A.141A},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+"""
+
+
 _citation_asplund2009 = r"""
 @ARTICLE{2009ARA&A..47..481A,
     author = {{Asplund}, Martin and {Grevesse}, Nicolas and {Sauval}, A. Jacques and
@@ -127,6 +148,24 @@ _atom_weight = (
     204.3833, 207.2, 208.98038, 209.99, 222.02, 223.02, 226.03, 227.03,
     232.0381, 231.03588, 238.02891, 237.05, 244.06, 243.06, 247.07, 247.07,
     251.08, 252.08,)
+
+# Asplund, Grevesse, Sauval, Scott (2009,  Annual Review of Astronomy
+# and Astrophysics, 47, 481)
+_asplund2021 = (
+    12.00, 10.914,
+    0.96,  1.38,  2.70,  8.46,  7.83,  8.69,  4.40,  8.06,
+    6.22,  7.55,  6.43,  7.51,  5.41,  7.12,  5.31,  6.38,
+    5.07,  6.30,  3.14,  4.97,  3.90,  5.62,  5.42,  7.46,
+    4.94,  6.20,  4.18,  4.56,  3.02,  3.62,  2.30,  3.34,
+    2.54,  3.12,  2.32,  2.83,  2.21,  2.59,  1.47,  1.88,
+    None,  1.75,  0.78,  1.57,  0.96,  1.71,  0.80,  2.02,
+    1.01,  2.18,  1.55,  2.22,  1.08,  2.17,  1.11,  1.58,
+    0.75,  1.42,  None,  0.95,  0.52,  1.08,  0.31,  1.10,
+    0.48,  0.93,  0.10,  0.85,  0.10,  0.85,  -0.15,  0.79,
+    0.26,  1.35,  1.32,  1.61,  0.91,  1.17,  0.92,  1.95,
+    0.65,  None,  None,  None,  None,  None,  None,  0.03,
+    None,  -0.54,  None,  None,  None,  None,  None,  None,
+    None,)
 
 # Asplund, Grevesse, Sauval, Scott (2009,  Annual Review of Astronomy
 # and Astrophysics, 47, 481)
@@ -463,6 +502,9 @@ class Abund(IPersist):
         if pattern_name.lower() in ["asplund2009"]:
             self._pattern = np.array(_asplund2009, dtype=float)
             self.citation_info += _citation_asplund2009
+        elif pattern_name.lower() in ["asplund2021"]:
+            self._pattern = np.array(_asplund2021, dtype=float)
+            self.citation_info += _citation_asplund2021
         elif pattern_name.lower() in ["grevesse2007", "solar"]:
             self._pattern = np.array(_grevesse2007, dtype=float)
             self.citation_info += _citation_grevesse2007
@@ -474,7 +516,7 @@ class Abund(IPersist):
         else:
             raise ValueError(
                 f"Got abundance pattern name {pattern_name} should be one of"
-                "'asplund2009', 'grevesse2007', 'lodders2003', or 'empty'."
+                "'asplund2009', 'asplund2021', 'grevesse2007', 'lodders2003', or 'empty'."
             )
 
     def set_pattern_by_value(self, pattern, type):
