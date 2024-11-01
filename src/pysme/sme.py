@@ -606,19 +606,19 @@ class SME_Structure(Parameters):
     def mask_line(self):
         if self.mask is None:
             return None
-        return self.mask == MASK_VALUES.LINE
+        return (self.mask & MASK_VALUES.LINE) != 0
 
     @property
     def mask_cont(self):
         if self.mask is None:
             return None
-        return self.mask == MASK_VALUES.CONT
+        return (self.mask & MASK_VALUES.LINE) != 0
 
     @property
     def mask_vrad(self):
         if self.mask is None:
             return None
-        return self.mask == MASK_VALUES.VRAD
+        return (self.mask & MASK_VALUES.VRAD) != 0
 
     @property
     def cscale_degree(self):

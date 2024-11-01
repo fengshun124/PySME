@@ -43,8 +43,10 @@ Furthermore for fitting to an observation an observation is required:
     * Uncertainties uncs
         >>> sme.uncs = Uncertainties
     * Mask mask
-        >>> # The mask values are: 0: bad pixel, 1: line pixel, 2: continuum pixel
-        >>> sme.mask = np.ones(len(Spectrum))
+        >>> # The mask values are: 0: bad pixel, 1: line pixel, 2: continuum pixel, 4: vrad pixel
+        >>> # The masks are additive, i.e., you can set mask value to 5 for line and vrad pixel.
+        >>> # Note that the dtype of sme.mask must be int.
+        >>> sme.mask = np.ones(len(Spectrum), dtype=int)
     * radial velocity and continuum flags
         >>> # possible values are: "each", "whole", "fix", "none"
         >>> # "each": Each segment is fitted individually
