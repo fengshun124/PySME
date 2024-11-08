@@ -675,16 +675,21 @@ class ValdFile(LineList):
             t = [' ', ref_string.split()]
         for i in range(0, len(t[1]), 2):
             if i <= len(t[1])-3:
-                t[1][i] = str(ref_pair[t[1][i+1].replace('iso:', '').replace('wl:', '').replace('gf:', '') + '-' + t[1][i]][-1])
+                try:
+                    t[1][i] = str(ref_pair[t[1][i+1].replace('iso:', '').replace('wl:', '').replace('gf:', '') + '-' + t[1][i]][-1])
+                except:
+                    t[1][i] = '00'
         t[1] = ' '.join(t[1])
         t = ' '.join(t)
         return t
 
     @staticmethod
-    def combine_list(vlist_1, vlist_2):
+    def merge_list(vlist_1, vlist_2):
         '''
         Combine two VALD line list. The two line list must have the same short/long format.
         Note that the code will use the metadata from vlist_1 as the ones in the combined line list.
+        Lines with same 'species', 'wlcent', 'gflog' and 'excit' will be treated as duplicated lines and removed.
+        Note: reference mismatch is known to be happen during line list merge.
         '''
 
         # Check the format of the line lists.
@@ -716,10 +721,10 @@ class ValdFile(LineList):
         
         vlist_1_use._ref_record = vlist_1_use._ref_record[:2] + ref_record_combined
         
-        # Contine the two dfs
+        # Concat the two dfs
         vlist_1_use._lines = pd.concat([vlist_1_use._lines, vlist_2_use._lines])
         
-        vlist_1_use._lines = vlist_1_use._lines[~vlist_1_use._lines.duplicated(subset=['species', 'wlcent', 'gflog', 'excit'], keep='first')].reset_index(drop=True)
+        vlist_1_use._lines = vlist_1_use._lines[~vlist_1_use._lines.duplicated(subset=['species', 'wlcent', 'gflog', 'excit'], keep='first')].sort_values('wlcent').reset_index(drop=True)
         vlist_1_use.nlines = len(vlist_1_use)
 
         if vlist_1_use.valdtype == 'extract_stellar':

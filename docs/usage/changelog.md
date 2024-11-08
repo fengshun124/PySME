@@ -12,6 +12,8 @@ This page storages the change log for pysme since May 2024.
 ## v0.4.184
 
 - (vald) add save and merge function to ValdFile.
+    - Coupling information ('LS', 'JK' etc) are missed during reading. Now added back.
+    - There is no `vmic` column in VALD short extract_all mode, but pysme have. This leads to I/O fail for this kind of line list. Fixed.
 
 ## v0.4.183
 
@@ -23,7 +25,7 @@ This page storages the change log for pysme since May 2024.
 
 ## v0.4.180
 
-- ~~fix mask bug. The continuum fitting function is now available.~~
+- ~~fix mask bug. The continuum fitting function is now available.~~ (see v0.4.183)
 
 ## v0.4.179
 
