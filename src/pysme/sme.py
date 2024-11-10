@@ -612,7 +612,7 @@ class SME_Structure(Parameters):
     def mask_cont(self):
         if self.mask is None:
             return None
-        return (self.mask & MASK_VALUES.LINE) != 0
+        return (self.mask & MASK_VALUES.CONT) != 0
 
     @property
     def mask_vrad(self):
