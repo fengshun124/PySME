@@ -1,13 +1,14 @@
 # Changelog
 
-This page storages the change log for pysme since May 2024.
+This page stores the change log for pysme since May 2024.
 
 ## In-development
 
-- New readthedocs theme (alabaster -> sphinx_book_theme).
-- New NLTE grids
-
 ## In github-repo
+
+## v0.4.187
+
+- Latest NLTE grids available.
 
 ## v0.4.184
 
@@ -22,6 +23,7 @@ This page storages the change log for pysme since May 2024.
 - (nlte) add ResetDepartureCoefficients function to ensure correct NLTE calculation
 - (solve) use 'vrad' instead of 'v_rad' for the radial velocity fitting.
 - (solve) add dynamic parameter function; sme parameter can changes according to other parameters while not being included in the fitting.
+- New readthedocs theme (alabaster -> sphinx_book_theme).
 
 ## v0.4.180
 

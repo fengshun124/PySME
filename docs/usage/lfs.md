@@ -54,7 +54,7 @@ the available filenames and PySME will fetch the file on your next run.
     - nlte_K_pysme.grd [(Amarsi et al. 2020; version 3)](https://ui.adsabs.harvard.edu/abs/2020A%26A...642A..62A)
   - Ca
     - nlte_Ca_pysme.grd [(Amarsi et al. 2020; version 3)](https://ui.adsabs.harvard.edu/abs/2020A%26A...642A..62A)
-  - Ti (temporary not availble)
+  - Ti
     - nlte_Ti_pysme.grd [(Mallinson et al. 2024)](https://ui.adsabs.harvard.edu/abs/2024A%26A...687A...5M/)
   - Mn
     - nlte_Mn_pysme.grd [(Amarsi et al. 2020; version 3)](https://ui.adsabs.harvard.edu/abs/2020A%26A...642A..62A)

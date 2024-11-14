@@ -1,5 +1,5 @@
 {
-    "nso.bin": "nso.bin",
+    "nso.bin": "atlas/nso.bin",
     "atlas12.sav": "models/atlas12_v1.0.0.sav.gz",
     "atlas9_vmic0.0.sav": "models/atlas9_vmic0.0_v1.0.0.sav.gz",
     "atlas9_vmic2.0.sav": "models/atlas9_vmic2.0_v1.0.0.sav.gz",

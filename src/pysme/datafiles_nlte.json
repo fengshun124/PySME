@@ -34,7 +34,7 @@
     "nlte_O_pysme.grd": "nlte_grids/nlte_O_scatt_Aug2020_pysme.grd.gz",
     "nlte_Si_pysme.grd": "nlte_grids/nlte_Si_scatt_Aug2020_pysme.grd.gz",
     "nlte_Fe_pysme.grd": "nlte_grids/nlte_Fe_ama51_Feb2022_pysme.grd.gz",
-    "nlte_Ti_pysme.grd": "nlte_grids/nlte_Ti_Oct2023_pysme.grd.gz",
+    "nlte_Ti_pysme.grd": "nlte_grids/nlte_Ti_ama51_Aug2024_pysme.grd.gz",
     "marcs2012_H2018.grd": "nlte_grids/marcs2012_H2018_v1.0.0.grd.gz",
     "marcs2012_Al.grd": "nlte_grids/marcs2012_Al_v1.0.0.grd.gz",
     "marcs2012_Ba.grd": "nlte_grids/marcs2012_Ba_v1.0.0.grd.gz",
