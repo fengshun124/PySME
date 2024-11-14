@@ -45,7 +45,7 @@ class ContinuumNormalizationAbstract:
 class ContinuumNormalizationMask(ContinuumNormalizationAbstract):
     def __init__(self):
         super().__init__()
-        self.cscale_tyoe = "mask"
+        self.cscale_type = "mask"
 
     def __call__(
         self,
@@ -978,10 +978,10 @@ def determine_radial_velocity(
 
         # Filter the mask for the correct sections
         # Need to use temporary m instead of mask, so that we can check
-        m = mask == MASK_VALUES.VRAD
+        m = (mask & MASK_VALUES.VRAD) != 0
         if not np.any(m):
             # No VRAD specified, use LINE instead
-            m = mask == MASK_VALUES.LINE
+            m = (mask & MASK_VALUES.LINE) != 0
         mask = m
         mask &= u_obs != 0
 
