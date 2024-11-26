@@ -645,14 +645,6 @@ class Synthesizer:
                 sme.cont = cmod
             if "line_range" not in sme:
                 sme.line_range = line_range
-            
-            if passLineList:
-                sme.central_depth = central_depth
-                for s in segments:
-                    # To do: modify to let linelist also can accept segments.
-                    if len(central_depth[s] > 0):
-                        sme.linelist._lines.loc[~line_ion_mask, 'central_depth'] = central_depth[s]
-                        sme.linelist._lines.loc[line_ion_mask, 'central_depth'] = np.nan
 
             for s in segments:
                 sme.wave[s] = wave[s]
@@ -660,6 +652,18 @@ class Synthesizer:
                 sme.cont[s] = cmod[s]
                 # sme.central_depth[s] = central_depth[s]
                 sme.line_range[s] = line_range[s]
+
+            if passLineList:
+                sme.central_depth = central_depth
+                for s in segments:
+                    # To do: modify to let linelist also can accept segments.
+                    if len(central_depth[s] > 0):
+                        sme.linelist._lines.loc[~line_ion_mask, 'central_depth'] = central_depth[s]
+                        sme.linelist._lines.loc[line_ion_mask, 'central_depth'] = np.nan
+                        sme.linelist._lines.loc[~line_ion_mask, 'line_range_s'] = line_range[s][:, 0]
+                        sme.linelist._lines.loc[~line_ion_mask, 'line_range_e'] = line_range[s][:, 1]
+                        sme.linelist._lines.loc[line_ion_mask, 'line_range_s'] = np.nan
+                        sme.linelist._lines.loc[line_ion_mask, 'line_range_e'] = np.nan
 
             if sme.cscale_type in ["spline", "spline+mask"]:
                 sme.cscale = np.asarray(cscale)
